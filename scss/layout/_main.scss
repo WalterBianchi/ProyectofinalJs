@@ -21,3 +21,70 @@
     background-color: crimson;
     color: white;
 }
+
+
+.compras h2{
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#total{
+    color: white;
+}
+
+
+/* Estilo para la lista del carrito */
+#carrito {
+    list-style-type: none;
+    padding: 0;
+}
+
+#carrito li {
+    color: white;
+    display: flex; 
+    justify-content: space-between; 
+    padding: 10px;
+    border-bottom: 1px solid #ccc; 
+}
+
+
+
+/* Estilo para el botón eliminar */
+#carrito button {
+    background-color: #ff5733; 
+    color: white; 
+    border: none;
+    border-radius: 5px; 
+    padding: 5px 10px; 
+    cursor: pointer; 
+}
+
+
+#carrito button:hover {
+    background-color: #c70039; 
+}
+
+/* Estilo para el botón de finalizar compra */
+body > button {
+    margin-top: 20px; 
+    margin-left: 15px;
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    cursor: pointer;
+}
+
+body > button:hover {
+    background-color: #218838; 
+}
+
+/* Estilo para el total */
+#total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px; 
+    margin-left: 15px;
+}
