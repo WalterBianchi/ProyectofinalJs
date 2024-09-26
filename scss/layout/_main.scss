@@ -18,9 +18,19 @@
 }
 
 .producto button {
-    background-color: crimson;
-    color: white;
+    background-color: rgb(220, 27, 65);
+    color: white; 
+    border: none;
+    border-radius: 5px; 
+    padding: 5px 10px; 
+    cursor: pointer; 
 }
+
+.producto button:hover{
+    background-color: #c70039;
+}
+
+
 
 
 .compras h2{
