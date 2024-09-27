@@ -18,19 +18,14 @@ tituloConteiner.appendChild(h1);
 //conteneder para las productos
 const productosContainer = document.getElementById("Conteiner-productos");
 
+const getproductos = async () => {
+    const response = await fetch ("data.json");
+    const data = await response.json ();
 
 
 
-// array de productos
-const productos = [
-    {id:1, nombre:"Canyon",imagen:"assets/bici2.png",precio:3700},
-    {id:2, nombre:"Trek",imagen:"assets/bici3.png",precio:3900},
-    {id:3, nombre:"Argon 18",imagen:"assets/bici4.png",precio:3400},
-    {id:4, nombre:"S-works",imagen:"assets/bici5.png",precio:3300},
-]
-
-// Iterar sobre el array de productos y crear elementos HTML
-productos.forEach(producto => {
+    // Iterar sobre el array de productos y crear elementos HTML
+data.forEach(producto => {
     const productoDiv = document.createElement("div");
     productoDiv.classList.add("producto");
 
@@ -55,7 +50,7 @@ productos.forEach(producto => {
     productoDiv.appendChild(img);
     productoDiv.appendChild(nombre);
     productoDiv.appendChild(precio);
-     productoDiv.appendChild(botonCompra); // Agregar el botón al div del producto
+    productoDiv.appendChild(botonCompra); 
     productosContainer.appendChild(productoDiv);
 });
 
@@ -64,11 +59,11 @@ let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 
 function agregarAlCarrito(productId) {
-    const producto = productos.find(item => item.id === productId); // Cambiado aquí
+    const producto = data.find(item => item.id === productId); 
     if (producto) {
         const existe = carrito.some(item => item.id === productId);
         if (!existe) {
-            carrito.push({ id: productId, ...producto }); // Añadir el producto al carrito
+            carrito.push({ id: productId, ...producto }); 
             localStorage.setItem('carrito', JSON.stringify(carrito));
             mostrarCarrito();
         }
@@ -114,7 +109,7 @@ function mostrarCarrito() {
 // Función para finalizar la compra
 function finalizarCompra() {
     if (carrito.length === 0) {
-        swal("El carrito está vacío", "", "warning"); // Mensaje de advertencia
+        swal("El carrito está vacío", "", "warning"); 
     } else {
         swal({
             title: "Compra finalizada",
@@ -151,7 +146,9 @@ mostrarCarrito();
 
 
 
+}
 
+getproductos();
 
 
 
